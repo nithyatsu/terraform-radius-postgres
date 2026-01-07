@@ -19,8 +19,7 @@ resource "kubernetes_persistent_volume_claim" "pvc" {
     namespace = local.namespace
     labels = {
       "radapp.io/resource" = var.context.resource.name
-      "radapp.io/application" = var.context.application != null ? var.context.application.name : ""
-      "radapp.io/environment" = var.context.environment != null ? var.context.environment.name : ""
+      "radapp.io/immutable" = "false"
     }
   }
 
